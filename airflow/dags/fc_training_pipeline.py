@@ -44,7 +44,7 @@ with DAG(
         ti = kwargs['ti']
         data_ingestion_artifact = training_pipeline.start_data_ingestion()
         print(data_ingestion_artifact)
-        ti.xcom_push('data_ingestion_artifact', data_ingestion_artifact)
+        ti.xcom_push(key='data_ingestion_artifact', value=data_ingestion_artifact)
 
     def data_validation(**kwargs):
         from finance_complaint.entity.artifact_entity import DataIngestionArtifact,DataValidationArtifact,DataTransformationArtifact,\
